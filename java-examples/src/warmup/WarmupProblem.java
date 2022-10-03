@@ -11,4 +11,6 @@ public interface WarmupProblem {
     int simpleArraySum(List<Integer> arr);
 
     long aVeryBigSum(List<Long> arr);
+
+    List<Integer> gradingStudents(List<Integer> grades) throws Exception;
 }

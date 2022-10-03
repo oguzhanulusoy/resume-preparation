@@ -74,4 +74,23 @@ public class WarmupSolution implements WarmupProblem {
         }
         return sum;
     }
+
+    @Override
+    public List<Integer> gradingStudents(List<Integer> grades) throws Exception {
+        if(!(grades.size() >= 1 && grades.size() <= 60)) {
+            throw new Exception("Invalid array because of length");
+        }
+        int division = 0, missing = 0;
+        for (int i=0; i<grades.size(); i++) {
+            if(!(grades.get(i) >= 0 && grades.get(i) <= 100)) {
+                throw new Exception("Invalid data in the list");
+            }
+            division = grades.get(i) % 5;
+            missing = 5 - division;
+            if(missing < 3 && grades.get(i) > 40) {
+                grades.set(i, grades.get(i) + missing);
+            }
+        }
+        return grades;
+    }
 }
